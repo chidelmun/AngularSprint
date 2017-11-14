@@ -1,7 +1,7 @@
 
 <div class="container">
-  <input type="text" [(ngModel)]="searchText" /><br>
-  <label for="Disable filter">Disable filter</label><input type="checkbox" />
+  <input type="text" [(ngModel)]="searchText" [disabled]=!allowFilter /><br>
+  <label for="Disable filter">Enable filter : </label><input [checked]=allowFilter (change)="toggleMode()" type="checkbox" />
   <br>{{searchItem}}
 <table class="table table-hover">
    <thead>
@@ -10,9 +10,10 @@
      </tr>
    </thead>
    <tbody>
-     <tr *ngFor='let item of todolist |filterbytext:searchText; let i = index;'
+     <tr *ngFor='let item of todolist|filterbytext:searchText; let i = index;'
        (click)="onClick(i)"  [routerLink]="['/item', i]">
-       <td>{{item.title}}</td>
+        <td> {{item.id}}-o </td>
+       <td> {{item.title}}</td>
      </tr>
    </tbody>
  </table>

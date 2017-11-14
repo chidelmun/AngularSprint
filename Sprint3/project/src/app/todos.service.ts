@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, HttpModule, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class TodosService {
 
   constructor(private http: Http) { }
 
-  getAllItems(){
-    return this.http.get('assets/todo.json');
+  getAllTodoItems(){
+    return this.http.get('http://localhost:3010/todos');
+  }
+
+  getTodoItem(id:number){
+    return this.http.get(`http://localhost:3010/todos/${id}`);
   }
 
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {routing}  from './app.routes';
 import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,7 +14,6 @@ import { NavlinksComponent } from './navlinks/navlinks.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TodoitemComponent } from './todoitem/todoitem.component';
 import {TodosService}     from './todos.service';
-import {HttpClientModule} from '@angular/common/http';
 import { FilterPipe } from './filter.pipe';
 
 @NgModule({
@@ -32,8 +32,8 @@ import { FilterPipe } from './filter.pipe';
   imports: [
     BrowserModule,
     routing,
-    HttpClientModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [TodosService],
   bootstrap: [AppComponent]
