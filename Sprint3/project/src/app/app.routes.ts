@@ -4,6 +4,7 @@ import {TodoitemComponent} from './todoitem/todoitem.component';
 import {TodolistComponent} from './todolist/todolist.component';
 
 const routes : Routes = [
+  {path:'', component: TodolistComponent},
   {path: 'list', component: TodolistComponent},
   {path: 'item', component:TodoitemComponent},
   {path: 'item/:index', component:TodoitemComponent}

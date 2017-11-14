@@ -1,5 +1,5 @@
 <div>
-<button [routerLink]="['/list']" (click)="onclick('list')">List</button>
-<button [routerLink]="['/item/0']"  (click)="onclick('item')">Item</button>
+<button routerLinkActive='btn-success' [routerLink]="['/list']" (click)="onclick('list')">List</button>
+<button routerLinkActive='btn-success' [routerLink]="['/item/0']"  (click)="onclick('item')">Item</button>
 <router-outlet></router-outlet>
 </div>

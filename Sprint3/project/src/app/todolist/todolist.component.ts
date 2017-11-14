@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { FilterPipe } from '../filter.pipe';
 @Component({
+  providers:[FilterPipe],
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
@@ -23,5 +24,7 @@ export class TodolistComponent implements OnInit {
      //alert(param);
      this.selected.emit(param);
    }
+
+   searchText: string;
 
 }
