@@ -1,0 +1,9 @@
+<div class='boxed' >
+  <h3>{{title}}</h3>
+  <strong>
+    <p *ngFor='let item of todolist; let i = index;'
+      (click)="onClick(i)" >
+      {{item.title}}
+    </p>
+  </strong>
+</div>

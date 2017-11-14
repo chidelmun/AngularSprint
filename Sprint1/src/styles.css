@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+p { margin: 0px; padding: 0px; }
+h3{ background-color: lightgray;}
+.boxed {
+    border: 1px solid darkgray;
+}
