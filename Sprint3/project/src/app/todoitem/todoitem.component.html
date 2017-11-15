@@ -19,3 +19,30 @@
    </tbody>
  </table>
 </div>
+<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit Todo</button>
+<button type="button" class="btn btn-info btn-sm" (click)="deleteTodo()" >Delete Todo</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{item.title}}</h4>
+      </div>
+      <div class="modal-body">
+        <label> Title: &nbsp; &nbsp; </label> <input [(ngModel)]="item.title" value="{{item.title}}" type="text" /><br>
+        <label> Description: &nbsp; &nbsp; </label> <textarea [(ngModel)]="item.description"  value="{{item.description}}"> </textarea> <br>
+        <label> Due: &nbsp; &nbsp; </label> <input [(ngModel)]="item.due" value="{{item.due}}" type="text" />
+      </div>
+
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" (click)="updateTodoItem()" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+
+  </div>
+</div>

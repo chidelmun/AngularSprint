@@ -15,6 +15,7 @@ import { TodolistComponent } from './todolist/todolist.component';
 import { TodoitemComponent } from './todoitem/todoitem.component';
 import {TodosService}     from './todos.service';
 import { FilterPipe } from './filter.pipe';
+import { ShowdonePipe } from './showdone.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FilterPipe } from './filter.pipe';
     NavlinksComponent,
     TodolistComponent,
     TodoitemComponent,
-    FilterPipe
+    FilterPipe,
+    ShowdonePipe
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,32 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FilterPipe } from '../filter.pipe';
+import {ShowdonePipe} from  '../showdone.pipe';
 import {TodosService} from '../todos.service';
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css'],
-  providers:[FilterPipe, TodosService]
+  providers:[FilterPipe, TodosService, ShowdonePipe]
 })
 export class TodolistComponent implements OnInit {
   @Input() title: string = 'ToDo List';
   @Output() selected = new EventEmitter();
 
-  // tslint:disable:max-line-length
-  todolist:{ 'id': number, 'title': string, 'description': string, 'due': string, 'done': boolean }[];
 
-   constructor(public todosServ: TodosService) {
+  todolist: { 'id': number, 'title': string, 'description': string, 'due': string, 'done': boolean }[];
 
-    }
+  constructor(private todoSvc: TodosService) {}
 
-   ngOnInit() {
-     this.todosServ.getAllTodoItems().subscribe(function(data){
-        //alert(data.json()[10].title);
+  ngOnInit() {
+    this.todoSvc.getAllTodoItems().subscribe(
+      data => {
         this.todolist = data.json();
+      },
+      error => {
+        alert("Sorry error occured");
+      });
+  }
 
-     }, function(error){
-          alert("Sorry error occured");
-     });
-   }
 
    onClick(param) {
      console.log('list onclick: ' + param );
@@ -38,6 +38,12 @@ export class TodolistComponent implements OnInit {
    searchText: string;
    toggleMode(){
      this.allowFilter = !this.allowFilter;
+   }
+
+   showDone : boolean = false;
+
+   toggleShowDone(){
+     this.showDone = !this.showDone;
    }
 
 }

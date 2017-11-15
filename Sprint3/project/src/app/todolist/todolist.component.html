@@ -2,7 +2,8 @@
 <div class="container">
   <input type="text" [(ngModel)]="searchText" [disabled]=!allowFilter /><br>
   <label for="Disable filter">Enable filter : </label><input [checked]=allowFilter (change)="toggleMode()" type="checkbox" />
-  <br>{{searchItem}}
+  <br> <label for="Show Done">Show done : </label><input type="checkbox" [checked]=showDone (change)="toggleShowDone()" />
+<div style="">
 <table class="table table-hover">
    <thead>
      <tr>
@@ -10,11 +11,13 @@
      </tr>
    </thead>
    <tbody>
-     <tr *ngFor='let item of todolist|filterbytext:searchText; let i = index;'
-       (click)="onClick(i)"  [routerLink]="['/item', i]">
-        <td> {{item.id}}-o </td>
+     <tr *ngFor='let item of todolist|filterbytext:searchText | showdone:showDone; let i = index;'
+       (click)="onClick(i)"  [routerLink]="['/item', item.id]">
+        <td> {{item.id}} </td>
        <td> {{item.title}}</td>
+       <td> <span class="glyphicon glyphicon-ok text-success" *ngIf="item.done"></span></td>
      </tr>
    </tbody>
  </table>
+</div>
 </div>
